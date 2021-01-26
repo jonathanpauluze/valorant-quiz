@@ -34,6 +34,10 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <link rel="shortcut icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        <meta property="og:title" content="Valorant Quiz" />
+        <meta property="og:description" content="Você sabe tudo sobre Valorant? Descubra no Valorant Quiz!" />
+        <meta property="og:image" content="/images/valorant-bg.jpg" />
+        <meta property="og:image:type" content="image/jpg" />
       </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
