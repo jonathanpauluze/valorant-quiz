@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import styled from 'styled-components';
 import db from '../db.json';
 import QuizBackground from '../src/components/QuizBackground';
@@ -19,31 +20,36 @@ const QuizContainer = styled.div`
 
 export default function Home() {
   return (
-    <QuizBackground backgroundImage={db.bg}>
-      <QuizContainer>
-        {/* <img src="https://logodownload.org/wp-content/uploads/2020/06/valorant-logo-2.png" width="250" /> */}
-        <Widget>
-          <Widget.Header>
-            <h1>Valorant</h1>
-          </Widget.Header>
-          <Widget.Content>
+    <>
+      <Head>
+        <title>Valorant Quiz</title>
+      </Head>
 
-            <p>Será que você vai brocar e acertar todas as perguntas? Prove que você é um verdadeiro radiante!</p>
-          </Widget.Content>
-        </Widget>
+      <QuizBackground backgroundImage={db.bg}>
+        <QuizContainer>
+          <Widget>
+            <Widget.Header>
+              <h1>Valorant</h1>
+            </Widget.Header>
+            <Widget.Content>
 
-        {/* <Widget>
-          <Widget.Content>
-            <h1>Quizes da galera</h1>
+              <p>Será que você vai brocar e acertar todas as perguntas? Prove que você é um verdadeiro radiante!</p>
+            </Widget.Content>
+          </Widget>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-          </Widget.Content>
-        </Widget> */}
+          {/* <Widget>
+            <Widget.Content>
+              <h1>Quizes da galera</h1>
 
-        <Footer />
-      </QuizContainer>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+            </Widget.Content>
+          </Widget> */}
 
-      <GitHubCorner projectUrl="https://github.com/jonathanpauluze/valorant-quiz" />
-    </QuizBackground>
+          <Footer />
+        </QuizContainer>
+
+        <GitHubCorner projectUrl="https://github.com/jonathanpauluze/valorant-quiz" />
+      </QuizBackground>
+    </>
   );
 }
