@@ -1,5 +1,6 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import db from '../db.json'
+import Head from 'next/head';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import db from '../db.json';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -24,17 +25,20 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
   }
-`
+`;
 
 const theme = db.theme;
 
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <link rel="shortcut icon" type="image/png" sizes="32x32" href="/favicon.png" />
+      </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
-  )
+  );
 }
