@@ -1,10 +1,15 @@
 import Head from 'next/head';
+import Link from 'next/link';
+
 import styled from 'styled-components';
-import db from '../db.json';
+import { FiChevronRight } from 'react-icons/fi';
+
 import QuizBackground from '../src/components/QuizBackground';
 import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
+
+import db from '../db.json';
 
 const QuizContainer = styled.div`
   width: 100%;
@@ -34,6 +39,14 @@ export default function Home() {
             <Widget.Content>
 
               <p>Será que você vai brocar e acertar todas as perguntas? Prove que você é um verdadeiro radiante!</p>
+              <Widget.Link>
+                <Link href="/quiz">
+                  <a>
+                    Desafiar
+                    <FiChevronRight size={18} color="#fff" />
+                  </a>
+                </Link>  
+              </Widget.Link>
             </Widget.Content>
           </Widget>
 
