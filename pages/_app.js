@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const theme = db.theme;
+const { theme } = db;
 
 export default function App({ Component, pageProps }) {
   return (
@@ -38,6 +38,14 @@ export default function App({ Component, pageProps }) {
         <meta property="og:description" content="Você sabe tudo sobre Valorant? Descubra no Valorant Quiz!" />
         <meta property="og:image" content="/images/valorant-bg.jpg" />
         <meta property="og:image:type" content="image/jpg" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
