@@ -1,11 +1,17 @@
+import { useState } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import styled from 'styled-components';
 import { FiChevronRight } from 'react-icons/fi';
 
 import QuizBackground from '../src/components/QuizBackground';
 import Widget from '../src/components/Widget';
+import Title from '../src/components/Title';
+import Text from '../src/components/Text';
+import Form from '../src/components/Form';
+import Input from '../src/components/Input';
+import Button from '../src/components/Button';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 
@@ -24,6 +30,15 @@ const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const [name, setName] = useState('');
+  const router = useRouter();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    router.push(`/quiz?name=${name}`);
+  };
+
   return (
     <>
       <Head>
@@ -34,19 +49,27 @@ export default function Home() {
         <QuizContainer>
           <Widget>
             <Widget.Header>
-              <h1>Valorant</h1>
+              <Title>Valorant</Title>
             </Widget.Header>
-            <Widget.Content>
 
-              <p>Será que você vai brocar e acertar todas as perguntas? Prove que você é um verdadeiro radiante!</p>
-              <Widget.Link>
-                <Link href="/quiz">
-                  <a>
-                    Desafiar
-                    <FiChevronRight size={18} color="#fff" />
-                  </a>
-                </Link>  
-              </Widget.Link>
+            <Widget.Content>
+              <Text>
+                Será que você vai brocar e acertar todas as perguntas?
+                Prove que você é um verdadeiro radiante!
+              </Text>
+
+              <Form onSubmit={handleSubmit}>
+                <Input
+                  onChange={(event) => setName(event.target.value)}
+                  placeholder="Manda teu usuário aí"
+                />
+
+                <Button type="submit" disabled={name.length === 0}>
+                  Jogar
+                  {' '}
+                  <FiChevronRight size={18} color="inherit" />
+                </Button>
+              </Form>
             </Widget.Content>
           </Widget>
 
