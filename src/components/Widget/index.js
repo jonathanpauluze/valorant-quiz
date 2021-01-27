@@ -47,38 +47,4 @@ Widget.Content = styled.div`
   }
 `;
 
-Widget.Link = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  margin-top: 10px;
-  padding: 0;
-  border: 0;
-  background-color: transparent;
-
-  a {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    color: #fff;
-    cursor: pointer;
-
-    svg {
-      margin-left: 5px;
-      transition: all .1s;
-    }
-
-    &:hover {
-      text-decoration: underline;
-
-      svg {
-        transform: translate3d(5px, 0, 0);
-      }
-    }
-  }
-`;
-
 export default Widget;
