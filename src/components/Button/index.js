@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Button = styled.button`
   display: flex;
@@ -30,5 +31,10 @@ const Button = styled.button`
     transform: translate3d(4px, 0, 0);
   }
 `;
+
+Button.propTypes = {
+  type: PropTypes.oneOf(['submit', 'type', 'button']).isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export default Button;

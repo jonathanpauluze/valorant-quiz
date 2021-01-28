@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-const Input = styled.input`
+const InputField = styled.input`
+  width: 100%;
   height: 40px;
   margin-bottom: 25px;
   padding: 7px 15px;
@@ -12,4 +14,21 @@ const Input = styled.input`
   background-color: transparent;
 `;
 
-export default Input;
+export default function Input({ onChange, placeholder, ...rest }) {
+  return (
+    <fieldset>
+      <InputField
+        onChange={onChange}
+        placeholder={placeholder}
+        {...rest}
+      />
+    </fieldset>
+  );
+}
+
+Input.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+};
