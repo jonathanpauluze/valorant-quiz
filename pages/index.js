@@ -60,6 +60,8 @@ export default function Home() {
 
               <Form onSubmit={handleSubmit}>
                 <Input
+                  name="username"
+                  value={name}
                   onChange={(event) => setName(event.target.value)}
                   placeholder="Manda teu usuário aí"
                 />
