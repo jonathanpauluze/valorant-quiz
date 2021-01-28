@@ -20,6 +20,12 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
   }
 
+  fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
   #__next {
     flex: 1;
     display: flex;
