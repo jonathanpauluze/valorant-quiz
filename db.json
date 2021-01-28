@@ -1,30 +1,32 @@
 {
   "bg": "/images/valorant-bg.jpg",
-  "title": "Quiz CSS da Alura",
-  "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+  "title": "Quiz de Valorant",
+  "description": "Será que você sabe o bastante para chegar no radiante?",
   "questions": [
     {
       "id": 1,
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
-      "description": "Essa é pra aquecer",
+      "image": "https://zilliongamer.com/uploads/valorant/weapons/all-weapon/ghost-valorant.jpg",
+      "title": "Quanto custa a Ghost?",
+      "description": "Essa tá em todos os primeiros rounds.",
       "answer": 2,
       "alternatives": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
+        "400",
+        "500",
+        "600",
+        "700"
       ]
     },
     {
       "id": 2,
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
+      "image": "https://static.valorantzone.gg/news/2020/06/10151250/REYNA-SKILL.jpg",
+      "title": "Qual é o nome da primeira habilidade (tecla C) da Reyna?",
+      "description": "Mandando a visão.",
       "answer": 0,
       "alternatives": [
-         "background: linear-gradient(#e66465, #9198e5);",
-         "background: gradient(#e66465, #9198e5);"
+         "Olho do Vazio",
+         "Olhar Voraz",
+         "Cegueira",
+         "Visão Corrompida"
       ]
     }
   ],
