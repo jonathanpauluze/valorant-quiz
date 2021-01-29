@@ -8,7 +8,7 @@
       "image": "https://zilliongamer.com/uploads/valorant/weapons/all-weapon/ghost-valorant.jpg",
       "title": "Quanto custa a Ghost?",
       "description": "Essa tá em todos os primeiros rounds.",
-      "answer": 2,
+      "answer": 1,
       "alternatives": [
         "400",
         "500",
@@ -21,12 +21,12 @@
       "image": "https://static.valorantzone.gg/news/2020/06/10151250/REYNA-SKILL.jpg",
       "title": "Qual é o nome da primeira habilidade (tecla C) da Reyna?",
       "description": "Mandando a visão.",
-      "answer": 0,
+      "answer": 2,
       "alternatives": [
          "Olho do Vazio",
+         "Visão Corrompida",
          "Olhar Voraz",
-         "Cegueira",
-         "Visão Corrompida"
+         "Cegueira"
       ]
     }
   ],
