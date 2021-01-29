@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Widget from '../Widget';
-import Form from '../Form';
+import AlternativesForm from '../AlternativesForm';
 import Button from '../Button';
 
 function QuestionWidget({
@@ -9,11 +10,24 @@ function QuestionWidget({
   question,
   totalQuestions,
   onSubmit,
+  addResult,
 }) {
+  const [selectedAlternative, setSelectedAlternative] = useState();
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const isCorrect = selectedAlternative === question.answer;
+  const hasSelectedAlternative = selectedAlternative !== undefined;
+
   function handleAlternativeSubmit(event) {
     event.preventDefault();
 
-    onSubmit();
+    setIsFormSubmitted(true);
+
+    setTimeout(() => {
+      setSelectedAlternative(undefined);
+      setIsFormSubmitted(false);
+      addResult(isCorrect);
+      onSubmit();
+    }, 1000);
   }
 
   return (
@@ -44,27 +58,36 @@ function QuestionWidget({
 
         <p>{question.description}</p>
 
-        <Form onSubmit={handleAlternativeSubmit}>
+        <AlternativesForm onSubmit={handleAlternativeSubmit}>
           {question.alternatives.map((alternative, alternativeIndex) => {
             const questionId = `question__${questionIndex}`;
             const alternativeId = `alternative__${alternativeIndex}`;
+            const alternativeStatus = isCorrect ? 'SUCCESS' : 'ERROR';
+            const isSelected = selectedAlternative === alternativeIndex;
+
             return (
               <Widget.Topic
                 key={alternativeId}
                 as="label"
                 htmlFor={alternativeId}
+                data-selected={isSelected}
+                data-status={isFormSubmitted && alternativeStatus}
               >
                 <input
                   id={alternativeId}
                   type="radio"
                   name={questionId}
+                  onChange={() => setSelectedAlternative(alternativeIndex)}
                 />
                 {alternative}
               </Widget.Topic>
             );
           })}
-          <Button type="submit">Confirmar</Button>
-        </Form>
+          <Button type="submit" disabled={!hasSelectedAlternative}>Confirmar</Button>
+
+          {isFormSubmitted && isCorrect && <p>Acertou</p>}
+          {isFormSubmitted && !isCorrect && <p>Errou</p>}
+        </AlternativesForm>
 
       </Widget.Content>
     </Widget>
@@ -83,6 +106,7 @@ QuestionWidget.propTypes = {
   }).isRequired,
   totalQuestions: PropTypes.number.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  addResult: PropTypes.func.isRequired,
 };
 
 export default QuestionWidget;
