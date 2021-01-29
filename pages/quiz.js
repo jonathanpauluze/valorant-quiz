@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import Widget from '../src/components/Widget';
 import QuizLogo from '../src/components/QuizLogo';
@@ -30,9 +31,36 @@ function LoadingWidget() {
   );
 }
 
+function ResultWidget({ results }) {
+  return (
+    <Widget>
+      <Widget.Header>
+        Resultado
+      </Widget.Header>
+
+      <Widget.Content>
+        <p>
+          Você acertou
+          {' '}
+          {results.filter((result) => result).length}
+        </p>
+
+        <ul>
+          {results.map((result, index) => (
+            <li key={`result__${index + 1}`}>
+              {`${index + 1} resultado: ${result ? 'Acertou' : 'Errou'}`}
+            </li>
+          ), 0)}
+        </ul>
+      </Widget.Content>
+    </Widget>
+  );
+}
+
 export default function QuizPage() {
   const [screenState, setScreenState] = useState(screenStates.LOADING);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [results, setResults] = useState([]);
   const totalQuestions = questions.length;
   const questionIndex = currentQuestion;
   const question = questions[questionIndex];
@@ -53,6 +81,10 @@ export default function QuizPage() {
     }
   }
 
+  function addResult(result) {
+    setResults([...results, result]);
+  }
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
@@ -65,13 +97,18 @@ export default function QuizPage() {
             questionIndex={questionIndex}
             totalQuestions={totalQuestions}
             onSubmit={handleQuizSubmit}
+            addResult={addResult}
           />
         )}
 
         {screenState === screenStates.RESULT && (
-          <h1>Parabains acertaste tudo</h1>
+          <ResultWidget results={results} />
         )}
       </QuizContainer>
     </QuizBackground>
   );
 }
+
+ResultWidget.propTypes = {
+  results: PropTypes.arrayOf(PropTypes.bool).isRequired,
+};
