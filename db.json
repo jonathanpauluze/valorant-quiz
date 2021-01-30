@@ -31,7 +31,7 @@
     }
   ],
   "external": [
-    ""
+    "https://imersao-react-next-js.nathanaquino.vercel.app"
   ],
   "theme": {
     "colors": {
