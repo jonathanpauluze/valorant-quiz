@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import styled from 'styled-components';
@@ -89,9 +90,11 @@ export default function Home() {
 
                   return (
                     <li key={link}>
-                      <Widget.Topic href={link}>
-                        {`${githubUser}/${projectName}`}
-                      </Widget.Topic>
+                      <Link href={`/quiz?external=${link}`}>
+                        <Widget.Topic>
+                          {`${githubUser}/${projectName}`}
+                        </Widget.Topic>
+                      </Link>
                     </li>
                   )
                 })}
