@@ -12,12 +12,18 @@ const AlternativesForm = styled.form`
         background-color: ${({ theme }) => theme.colors.wrong};
       }
     }
+
     &:focus {
       opacity: 1;
     } 
   }
+
   button {
     margin-top: 24px;
+  }
+
+  input[type=radio] {
+    display: none;
   }
 `;
 
