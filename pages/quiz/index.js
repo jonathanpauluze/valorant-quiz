@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import Widget from '../src/components/Widget';
-import QuizLogo from '../src/components/QuizLogo';
-import QuizBackground from '../src/components/QuizBackground';
-import QuizContainer from '../src/components/QuizContainer';
-import QuestionWidget from '../src/components/QuestionWidget';
+import Widget from '../../src/components/Widget';
+import QuizLogo from '../../src/components/QuizLogo';
+import QuizBackground from '../../src/components/QuizBackground';
+import QuizContainer from '../../src/components/QuizContainer';
+import QuestionWidget from '../../src/components/QuestionWidget';
 
-import db from '../db.json';
+import db from '../../db.json';
 
 const { questions } = db;
 
