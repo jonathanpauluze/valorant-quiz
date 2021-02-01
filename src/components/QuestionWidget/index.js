@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Widget from '../Widget';
 import AlternativesForm from '../AlternativesForm';
 import Button from '../Button';
+import ResultToast from '../ResultToast';
 
 function QuestionWidget({
   questionIndex,
@@ -90,8 +91,12 @@ function QuestionWidget({
           })}
           <Button type="submit" disabled={!hasSelectedAlternative}>Confirmar</Button>
 
-          {isFormSubmitted && isCorrect && <p>Acertou</p>}
-          {isFormSubmitted && !isCorrect && <p>Errou</p>}
+          {isFormSubmitted
+            && (
+              <ResultToast isCorrect={isCorrect}>
+                {isCorrect ? 'Acertou' : 'Errou'}
+              </ResultToast>
+            )}
         </AlternativesForm>
 
       </Widget.Content>
