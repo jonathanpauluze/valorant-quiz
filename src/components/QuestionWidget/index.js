@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Link from 'next/link';
+import { FiArrowLeft } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 
 import Widget from '../Widget';
@@ -33,6 +35,9 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
+        <Link href="/">
+          <FiArrowLeft size={18} color="inherit" />
+        </Link>
         <h3>
           {`
             Pergunta
