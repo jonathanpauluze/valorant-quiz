@@ -2,8 +2,8 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { FiChevronRight } from 'react-icons/fi';
 
 import QuizBackground from '../src/components/QuizBackground';
@@ -48,7 +48,19 @@ export default function Home() {
 
       <QuizBackground backgroundImage={db.bg}>
         <QuizContainer>
-          <Widget>
+          <Widget
+            as={motion.section}
+            transition={{
+              duration: 0.5,
+              delay: 0,
+            }}
+            variants={{
+              show: { opacity: 1, y: 0 },
+              hidden: { opacity: 0, y: 10 },
+            }}
+            initial="hidden"
+            animate="show"
+          >
             <Widget.Header>
               <Title>Valorant</Title>
             </Widget.Header>
@@ -76,7 +88,19 @@ export default function Home() {
             </Widget.Content>
           </Widget>
 
-          <Widget>
+          <Widget
+            as={motion.section}
+            transition={{
+              duration: 0.5,
+              delay: 0.2,
+            }}
+            variants={{
+              show: { opacity: 1, y: 0 },
+              hidden: { opacity: 0, y: 10 },
+            }}
+            initial="hidden"
+            animate="show"
+          >
             <Widget.Content>
               <h1>Quizes da galera</h1>
 
@@ -96,13 +120,25 @@ export default function Home() {
                         </Widget.Topic>
                       </Link>
                     </li>
-                  )
+                  );
                 })}
               </ul>
             </Widget.Content>
           </Widget>
 
-          <Footer />
+          <Footer
+            as={motion.footer}
+            transition={{
+              duration: 0.5,
+              delay: 0.4,
+            }}
+            variants={{
+              show: { opacity: 1, y: 0 },
+              hidden: { opacity: 0, y: 10 },
+            }}
+            initial="hidden"
+            animate="show"
+          />
         </QuizContainer>
 
         <GitHubCorner projectUrl="https://github.com/jonathanpauluze/valorant-quiz" />
