@@ -1,78 +1,64 @@
-# Example app with styled-components
+<h1 align="center">
+    Imersão React Alura <br/>
+    Valorant Quiz
+</h1>
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/zeit/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
+<p align="center">	
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/jonathanpauluze/valorant-quiz">
+	
+  <a href="https://www.linkedin.com/in/jonathanpauluze/">
+    <img alt="Made by jonathanpauluze" src="https://img.shields.io/badge/made%20by-jonathanpauluze-%2304D361">
+  </a>
+  
+  <a href="https://github.com/jonathanpauluze/valorant-quiz/commits/main">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/jonathanpauluze/valorant-quiz">
+  </a>
 
-For this purpose we are extending the `<Document />` and injecting the server side rendered styles into the `<head>`, and also adding the `babel-plugin-styled-components` (which is required for server side rendering). Additionally we set up a global [theme](https://www.styled-components.com/docs/advanced#theming) for styled-components using NextJS custom [`<App>`](https://nextjs.org/docs/advanced-features/custom-app) component.
+</p>
+<p align="center">
+  <a href="#information_source-Sobre-o-desafio">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-tecnologias-e-ferramentas">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#wrench-como-rodar-o-projeto">Como rodar o projeto</a>
+</p>
 
-## Deploy your own
+## :information_source: Sobre o projeto
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+Projeto construído durante a Imersão React da [Alura](https://www.alura.com.br/c). Trata-se de um jogo de quiz com a temática do jogo [Valorant](https://playvalorant.com/pt-br/) da Riot Games, construído com React utilizando o framework NextJS.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-styled-components&project-name=with-styled-components&repository-name=with-styled-components)
+![./.github/screenshot.png](./.github/application.gif)
 
-## How to use
+## :rocket: Tecnologias e Ferramentas
+- [React](https://reactjs.org)
+- [NextJS](https://nextjs.org)
+## :wrench: Como rodar o projeto
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+É necessário ter instalado:
+- [Git](https://git-scm.com)
+- [Node.js](https://nodejs.org/)
+- [Yarn](https://yarnpkg.com/)
+
+### Faça um clone do projeto
 
 ```bash
-npx create-next-app --example with-styled-components with-styled-components-app
-# or
-yarn create next-app --example with-styled-components with-styled-components-app
+$ git clone https://github.com/jonathanpauluze/valorant-quiz
+
+# ou com a CLI do GitHub
+$ gh repo clone jonathanpauluze/valorant-quiz
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+### Instale as dependências
+```bash
+# Acesse o diretório do projeto
+$ cd valorant-quiz
 
-### Try it on CodeSandbox
-
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/vercel/next.js/tree/canary/examples/with-styled-components)
-
-### Notes
-
-When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `next/link` within a styled-component, the [as](https://styled-components.com/docs/api#as-polymorphic-prop) prop provided by `styled` will collide with the Link's `as` prop and cause styled-components to throw an `Invalid tag` error. To avoid this, you can either use the recommended [forwardedAs](https://styled-components.com/docs/api#forwardedas-prop) prop from styled-components or use a different named prop to pass to a `styled` Link.
-
-<details>
-<summary>Click to expand workaround example</summary>
-<br />
-
-**components/StyledLink.js**
-
-```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
-
-const StyledLink = ({ as, children, className, href }) => (
-  <Link href={href} as={as} passHref>
-    <a className={className}>{children}</a>
-  </Link>
-)
-
-export default styled(StyledLink)`
-  color: #0075e0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    color: #40a9ff;
-  }
-
-  &:focus {
-    color: #40a9ff;
-    outline: none;
-    border: 0;
-  }
-`
+# Instale as dependências
+$ yarn
 ```
 
-**pages/index.js**
-
-```javascript
-import StyledLink from '../components/StyledLink'
-
-export default () => (
-  <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
-    First post
-  </StyledLink>
-)
+### Inicie a aplicação
+```bash
+$ yarn dev
 ```
 
-</details>
+
+<p align="center">Feito com ♥ por <a href="https://linkedin.com/in/jonathanpauluze" target="_blank">Jonathan Pauluze</a></p>
