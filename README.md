@@ -25,6 +25,8 @@
 
 Projeto construído durante a Imersão React da [Alura](https://www.alura.com.br/c). Trata-se de um jogo de quiz com a temática do jogo [Valorant](https://playvalorant.com/pt-br/) da Riot Games, construído com React utilizando o framework NextJS.
 
+É possível testar a aplicação hospedada na Vercel por [este link](https://valorant-quiz-jonathanpauluze.vercel.app)
+
 ![./.github/screenshot.png](./.github/application.gif)
 
 ## :rocket: Tecnologias e Ferramentas
